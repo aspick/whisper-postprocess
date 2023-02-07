@@ -1,16 +1,4 @@
-require_relative './lib/cue'
-require_relative './lib/formatter/simple_formatter'
+require_relative './lib/whisper_postprocess'
 
-# parse
-## parse whisper output file
-text = $stdin.read
-cues = Cue.parse_all(text)
-
-# concat
-## concat same output lines
-cues = Cue.concat(cues)
-
-# print
-## print output with simple format
-new_text = Formatter::SimpleFormatter.new.print_all(cues)
-puts new_text
+processor = WhisperPostprocess.new
+puts processor.process($stdin.read)
