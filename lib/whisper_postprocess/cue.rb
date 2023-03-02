@@ -2,7 +2,7 @@ class WhisperPostprocess
   class Cue
     attr_accessor :start, :stop, :text
 
-    TIME_CODE_REGEX = /\d{2}:\d{2}:\d{2}\.\d{3}/
+    TIME_CODE_REGEX = /(?>\d{2}:)?\d{2}:\d{2}\.\d{3}/
     CUE_LINE_REGEX = /\[(#{TIME_CODE_REGEX}) --> (#{TIME_CODE_REGEX})\]\s+(.*)/
 
     # @param text [String] line text
